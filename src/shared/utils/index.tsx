@@ -17,3 +17,25 @@ export const devices = {
     laptopL: `(min-width: ${sizes.laptopL})`,
     desktop: `(min-width: ${sizes.desktop})`,
 }
+
+
+export function getCover(name: string) {
+    const folder:string = 'bands';
+    const covers: any = {
+        'Kiss': 'Kiss.jpg',
+        'Aerosmith': 'Aerosmith.jpg',
+        'Angra': 'Angra.jpg',
+        'Cradle of Filth': 'Cradle-of-Filth.jpg',
+        'Dream Theater': 'dream-theater.jpg',
+        'Iron Maiden': 'iron-maiden.jpg',
+        'Metallica': 'Metallica.jpg',
+        'Pearl Jam': 'pearl-jam.jpg',
+        'Queen': 'Queen.jpg',
+        'Rhapsody of Fire': 'Rhapsody-of-Fire.jpg',
+        'The Beatles': 'the-beatles.jpg',
+        'Within Temptation': 'within-temptation.jpg',
+    }
+
+    const imgCover:string = covers[name] ?? '';
+    return `${folder}/${imgCover}`
+}

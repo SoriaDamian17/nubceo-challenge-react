@@ -8,7 +8,7 @@ interface TypographyProps {
   bold?: boolean
   children?: any
   className?: string
-  color?: string
+  color?: "primary" | "secondary"
   fontSize?: string
   htmlFor?: string
   onClick?: () => void
@@ -18,7 +18,7 @@ interface TypographyProps {
 
 const components: any = {
   h1: styled.h1<TypographyProps>`
-    color: ${({ color, theme }) => color ?? theme.palette.primary};
+    color: ${({ color, theme }) => color ? theme.palette[color] : theme.palette.primary};
     font-family: ${({ theme }) => theme.font.primary};
     font-size: ${({ fontSize }) => fontSize ?? '1.56rem'};
     font-weight: 700;
