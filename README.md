@@ -30,11 +30,15 @@ These are the following conditions for the development:
 ```
 build/                       compiled version
 src/                         project source code
-|  |- components/            Componentes proyect (Dialog, Layout, Logo, Navbar, ..etc)
+|  |- components/            Componentes proyect (Atomic design pattern)
+|       |- atoms/            Are the basic building blocks of all matter
+|       |- molecules/        Are groups of two or more atoms held together
+|       |- organisms         Are assemblies of molecules functioning together
 |  |- context/               Provider Store (DataSourceContext, ConnectionContext)
 |  |- hook/                  customhook (useDatasource, useConnections)
 |  |- pages/                 Pages Router (Login, Home, DataSource, NotFound)
-|  |- service/               service module (Axios Config, Nexxus Api)
+|  |- interface/             Different scheme of objects
+|  |- service/               service module (Axios Config, Albums Api, Bands Api, Genre Api)
 |  |- shared/                shared modules  (styles, static and utils)
 |  |-
 coverage/                    test and coverage reports
