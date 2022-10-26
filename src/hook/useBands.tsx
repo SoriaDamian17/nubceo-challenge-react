@@ -3,9 +3,9 @@ import { BandsApi } from '../service/Bands';
 
 const Key = 'bands';
 
-export function useBands(token?: string) {
+export function useBands(token?: string, id?: string, filter?: any) {
     return useQuery(
         [Key, token],
-        () => BandsApi.get('/bands'),
+        () => BandsApi.get('/bands', id, filter),
     )
 }

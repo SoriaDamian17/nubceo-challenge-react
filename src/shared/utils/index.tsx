@@ -39,3 +39,24 @@ export function getCover(name: string) {
     const imgCover:string = covers[name] ?? '';
     return `${folder}/${imgCover}`
 }
+
+export function formatGenreOptions(options: any) {
+    const formatOptions = options.map((option: any) => {
+        return { id: option.code, value: option.name }
+    })
+
+    console.log('formatGenre', [
+        ...formatOptions,
+        {
+            id: 'All',
+            value: 'All bands'
+        }
+    ])
+    return [
+        ...formatOptions,
+        {
+            id: 'All',
+            value: 'All bands'
+        }
+    ]
+}

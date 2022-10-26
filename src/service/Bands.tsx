@@ -7,12 +7,17 @@ const headers = {
 };
 
 const BandsApi = {
-    get: (url:string, header?: any) => axiosBase.get(`${url}`, {
-        headers: {
-            ...headers,
-            header
-        },
-    }),
+    get: (url:string, id?: string, filter?: any, header?: any) => {
+        let pathUrl = `${url}?_sort=name&_order=${filter.sort}`;
+        if (id) pathUrl += `&id=${id}`
+        if (filter.genre !== 'All bands') pathUrl += `&genreCode=${filter.genre}`
+        return axiosBase.get(`${pathUrl}`, {
+            headers: {
+                ...headers,
+                header
+            },
+        })
+    },
 };
 
 export { BandsApi };
