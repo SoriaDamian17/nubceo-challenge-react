@@ -8,6 +8,7 @@ The website has to contain the following pages/features:
 - View information of a specific band, including albums and members.
 - Logout
 
+
 ## Tech Requirements
 These are the following conditions for the development:
 
