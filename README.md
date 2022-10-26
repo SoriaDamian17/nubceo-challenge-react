@@ -1,46 +1,66 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acceptance Requirements
+The website has to contain the following pages/features:
 
-## Available Scripts
+- Login/authentication page. The rest of the pages have to be behind this "authorization wall".
+- List and navigate bands.
+- Filter and sorting should be enabled.
+- View information of a specific band, including albums and members.
+- Logout
 
-In the project directory, you can run:
+## Tech Requirements
+These are the following conditions for the development:
 
-### `npm start`
+- The code should be using React 16.13 or superior.
+- The code could be written in Javascript or Typescript.
+- All the code and comments should be written in english.
+- Use a proper naming conventions and standards when defining the structure of the project and the name of variables, functions, etc.
+- Use a proper structure and hierarchy to define the different URL paths for the pages.
+- The use of ESLint or other linter is optional.
+- The use of Redux, Flux or any other container solution is optional.
+## Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+-   [Scaffolding](#Scaffolding)
+-   [Environment](#Environment)
+-   [Install](#Install)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Scaffolding
 
-### `npm test`
+```
+build/                       compiled version
+src/                         project source code
+|  |- components/            Componentes proyect (Dialog, Layout, Logo, Navbar, ..etc)
+|  |- context/               Provider Store (DataSourceContext, ConnectionContext)
+|  |- hook/                  customhook (useDatasource, useConnections)
+|  |- pages/                 Pages Router (Login, Home, DataSource, NotFound)
+|  |- service/               service module (Axios Config, Nexxus Api)
+|  |- shared/                shared modules  (styles, static and utils)
+|  |-
+coverage/                    test and coverage reports
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Environment
 
-### `npm run build`
+-   [nodejs](https://nodejs.org/)
+-   [npm](https://www.npmjs.com)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+$ npm install
+```
 
-### `npm run eject`
+## Docker
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+docker build -f Dockerfile -t nubceo .
+docker run -d -p 9000:80 --name nubceo nubceo
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Open your browser at http://localhost:9000/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Extras
+- 

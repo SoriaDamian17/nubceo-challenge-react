@@ -11,6 +11,17 @@ import Select from "../../components/molecules/Select";
 import { useState } from "react";
 import { Band, HeaderBand } from "./styles";
 
+const SORT_BANDS = [
+    {
+        id: 'asc',
+        value: 'sort asc',
+    },
+    {
+        id: 'desc',
+        value: 'sort desc',
+    }
+];
+
 const Home = () => {
     const [genre, setGenre] = useState<string>('All bands')
     const {
@@ -39,14 +50,7 @@ const Home = () => {
                 </Typography>
                 <Select
                     onChange={handleSelected}
-                    options={[{
-                        id: 'asc',
-                        value: 'sort asc',
-                    },
-                    {
-                        id: 'desc',
-                        value: 'sort desc',
-                    },]}
+                    options={SORT_BANDS}
                     valueSelected={'sort asc'}
                 />
                 <Select

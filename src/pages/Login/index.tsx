@@ -31,6 +31,7 @@ const Login: React.FC = ():JSX.Element => {
             password: inputPassword,
         }).then(
             (resp:any) => {
+                console.log(resp)
                 // localStorage.setItem('NXtoken', resp.data.data.token);
                 navigate('/home');
             },
