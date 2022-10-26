@@ -1,46 +1,71 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Acceptance Requirements
+The website has to contain the following pages/features:
 
-## Available Scripts
+- Login/authentication page. The rest of the pages have to be behind this "authorization wall".
+- List and navigate bands.
+- Filter and sorting should be enabled.
+- View information of a specific band, including albums and members.
+- Logout
 
-In the project directory, you can run:
 
-### `npm start`
+## Tech Requirements
+These are the following conditions for the development:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The code should be using React 16.13 or superior.
+- The code could be written in Javascript or Typescript.
+- All the code and comments should be written in english.
+- Use a proper naming conventions and standards when defining the structure of the project and the name of variables, functions, etc.
+- Use a proper structure and hierarchy to define the different URL paths for the pages.
+- The use of ESLint or other linter is optional.
+- The use of Redux, Flux or any other container solution is optional.
+## Table of Contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+-   [Scaffolding](#Scaffolding)
+-   [Environment](#Environment)
+-   [Install](#Install)
 
-### `npm test`
+## Scaffolding
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+build/                       compiled version
+src/                         project source code
+|  |- components/            Componentes proyect (Atomic design pattern)
+|       |- atoms/            Are the basic building blocks of all matter
+|       |- molecules/        Are groups of two or more atoms held together
+|       |- organisms         Are assemblies of molecules functioning together
+|  |- context/               Provider Store (DataSourceContext, ConnectionContext)
+|  |- hook/                  customhook (useDatasource, useConnections)
+|  |- pages/                 Pages Router (Login, Home, DataSource, NotFound)
+|  |- interface/             Different scheme of objects
+|  |- service/               service module (Axios Config, Albums Api, Bands Api, Genre Api)
+|  |- shared/                shared modules  (styles, static and utils)
+|  |-
+coverage/                    test and coverage reports
+```
 
-### `npm run build`
+## Environment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   [nodejs](https://nodejs.org/)
+-   [npm](https://www.npmjs.com)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Install
 
-### `npm run eject`
+```bash
+$ npm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Docker
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+docker build -f Dockerfile -t nubceo .
+docker run -d -p 9000:80 --name nubceo nubceo
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Open your browser at http://localhost:9000/
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Extras
+- 

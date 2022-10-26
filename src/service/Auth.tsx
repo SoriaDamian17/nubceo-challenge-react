@@ -1,4 +1,6 @@
 import { axiosBase } from '.';
+import { IAuth } from '../context/AuthContext';
+import { generate_token } from '../shared/utils';
 
 const headers = {
     'Content-Type': 'application/json',
@@ -12,8 +14,25 @@ export interface IBody {
 }
 
 const AuthApi = {
-    post: (url:string, data:IBody) => axiosBase.post(`${url}`, data, {
-        headers,
+    post: (url:string, data:IBody) => new Promise((resolve, reject) => {
+        console.log('data', data)
+        console.log('process.env.REACT_APP_USER_EMAIL', process.env.REACT_APP_USER_EMAIL)
+        console.log('process.env.REACT_APP_USER_PASSWORD', process.env.REACT_APP_USER_PASSWORD)
+        if (
+            data.username === process.env.REACT_APP_USER_EMAIL ||
+            data.password === process.env.REACT_APP_USER_PASSWORD
+        ) {
+            const Auth: IAuth = {
+                expiration: 'never',
+                expiresIn: 0,
+                refreshToken: '',
+                token: generate_token(32),
+                user: data.username,
+            }
+            return resolve(Auth)
+        } else {
+            return reject("Error credentials!")
+        }
     }),
 };
 

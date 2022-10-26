@@ -4,12 +4,11 @@ interface AuthContextProps {
     children: ReactNode,
 }
 
-interface IAuth {
+export interface IAuth {
     expiration: string;
     expiresIn: number;
     refreshToken: string;
     token: string;
-    viewerToken: string;
     user: string;
 }
 
@@ -24,7 +23,6 @@ const defaultValue = {
         expiresIn: 0,
         refreshToken: '',
         token: '',
-        viewerToken: '',
         user: '',
     },
     // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -41,7 +39,6 @@ const AuthContextProvider: FC<AuthContextProps> = ({
         expiresIn: 0,
         refreshToken: '',
         token: '',
-        viewerToken: '',
         user: '',
     };
     const [auth, setAuth] = useState<IAuth>(InitialState);
