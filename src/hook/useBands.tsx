@@ -3,9 +3,11 @@ import { BandsApi } from '../service/Bands';
 
 const Key = 'bands';
 
-export function useBands(token?: string, id?: string, filter?: any) {
+export function useBands(token?: string | null, id?: string, filter?: any) {
     return useQuery(
         [Key, token],
-        () => BandsApi.get('/bands', id, filter),
+        () => BandsApi.get('/bands', id, filter, {
+            'authorization': `Bearer ${token}`
+        }),
     )
 }

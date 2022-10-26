@@ -10,7 +10,7 @@ const BandsApi = {
     get: (url:string, id?: string, filter?: any, header?: any) => {
         let pathUrl = `${url}?_sort=name&_order=${filter.sort}`;
         if (id) pathUrl += `&id=${id}`
-        if (filter.genre !== 'All bands')
+        if (filter.genre !== 'All')
             pathUrl += `&genreCode=${filter.genre}`
         return axiosBase.get(`${pathUrl}`, {
             headers: {

@@ -4,14 +4,18 @@ import { useSelector } from 'react-redux';
 import Header from '../molecules/Header'
 import Panel from '../molecules/Panel'
 import Alert from '../atoms/Alert';
+import { useNavigate } from 'react-router-dom';
 
 interface TemplateProps {
   children: any,
+  sx?: any,
 }
 
 const BasicTemplate: React.FC<TemplateProps> = ({
   children,
+  sx,
 }: TemplateProps) => {
+  const navigate = useNavigate()
   const isServiceWorkerInitialized = useSelector(
       (state: IState) => state.serviceWorkerInitialized,
   );
@@ -36,6 +40,11 @@ const BasicTemplate: React.FC<TemplateProps> = ({
     }
   };
 
+  function logout() {
+    localStorage.removeItem('NubToken');
+    navigate('/')
+  }
+
   return (
     <>
       <div className="App-alert">
@@ -55,8 +64,8 @@ const BasicTemplate: React.FC<TemplateProps> = ({
         direction='column'
         width='100%'
         height="100%">
-        <Header />
-        <div style={{ width: '62rem'}}>
+        <Header onClick={logout} />
+        <div style={sx}>
           {children}
         </div>
       </Panel>

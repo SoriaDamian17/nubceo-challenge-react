@@ -2,17 +2,17 @@ import { createStore } from 'redux';
 import { SW_INIT, SW_UPDATE } from './swtypes';
 
 export interface IState {
-    serviceWorkerInitialized: boolean,
-    serviceWorkerUpdated: boolean,
-    serviceWorkerRegistration: any
+    serviceWorkerInitialized: boolean;
+    serviceWorkerUpdated: boolean;
+    serviceWorkerRegistration: any;
 }
 const defaultState = {
     serviceWorkerInitialized: false,
     serviceWorkerUpdated: false,
-    serviceWorkerRegistration: null
-}
+    serviceWorkerRegistration: null,
+};
 
-function rootReducer(state = defaultState, action:any) {
+function rootReducer(state = defaultState, action: any) {
     const stateSW: any = {
         [SW_INIT]: {
             ...state,
@@ -22,7 +22,7 @@ function rootReducer(state = defaultState, action:any) {
             ...state,
             serviceWorkerUpdated: !state.serviceWorkerUpdated,
             serviceWorkerRegistration: action.payload,
-        }
+        },
     };
     return stateSW[action.type] ?? state;
 }

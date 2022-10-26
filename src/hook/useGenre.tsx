@@ -6,6 +6,8 @@ const Key = 'genre';
 export function useGenre(token?: string) {
     return useQuery(
         [Key, token],
-        () => GenreApi.get('/genre'),
+        () => GenreApi.get('/genre', {
+            'authorization': `Bearer ${token}`
+        }),
     )
 }

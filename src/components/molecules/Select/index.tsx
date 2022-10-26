@@ -41,7 +41,7 @@ export default React.memo(function Select({
             height={height}
         >
             {options.map((option:IOption) => 
-                <MenuItem key={option.id} value={option.value}>
+                <MenuItem key={option.id} value={option.id}>
                     <em>{option.value}</em>
                 </MenuItem>
             )}

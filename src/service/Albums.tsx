@@ -7,12 +7,16 @@ const headers = {
 };
 
 const AlbumsApi = {
-    get: (url:string, header?: any) => axiosBase.get(`${url}`, {
-        headers: {
-            ...headers,
-            header
-        },
-    }),
+    get: (url:string, id?: string | number, header?: any) => {
+        let pathUrl = url;
+        if (id) pathUrl += `?bandId=${id}`;
+        return axiosBase.get(pathUrl, {
+            headers: {
+                ...headers,
+                header
+            },
+        })
+    },
 };
 
 export { AlbumsApi };

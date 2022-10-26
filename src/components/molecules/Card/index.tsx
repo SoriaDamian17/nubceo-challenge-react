@@ -8,13 +8,15 @@ import CardMT from '@mui/material/Card';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
 import ShareIcon from '@mui/icons-material/Share';
+import { Button } from '../../atoms/Button';
 
 export default function Card({
+    genreCode,
+    id,
+    onClick,
     src,
     title,
-    genreCode,
 }: ICard) {
-
   return (
     <CardMT sx={{ maxWidth: 320 }}>
       <CardHeader
@@ -32,13 +34,27 @@ export default function Card({
         image={process.env.PUBLIC_URL + src}
         alt={title}
       />
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
-        </IconButton>
-        <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton>
+      <CardActions disableSpacing sx={{
+        justifyContent: 'space-between'
+      }}>
+        <div>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+          <IconButton aria-label="share">
+            <ShareIcon />
+          </IconButton>
+        </div>
+        <div>
+          <Button
+            variant='contained'
+            color="primary"
+            background='secondary'
+            onClick={() => onClick(id)}
+          >
+            View Band
+          </Button>
+        </div>
       </CardActions>
     </CardMT>
   );

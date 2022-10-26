@@ -1,5 +1,5 @@
 export type IMember = {
-    name:string
+    name: string
 }
 
 export type IBand = {

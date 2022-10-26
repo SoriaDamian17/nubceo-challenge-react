@@ -11,6 +11,8 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import { SW_INIT, SW_UPDATE } from './swtypes';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import configureStore from './store';
+import { Provider } from 'react-redux';
 const store = configureStore();
 
 const client = new QueryClient()
@@ -19,21 +21,23 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <ThemeProvider theme={Theme}>
-    <SnackbarProvider
-        anchorOrigin={{
-        vertical: 'top',
-        horizontal: 'right',
-        }}
-        maxSnack={3}
-      >
-        <HelmetProvider>
-          <QueryClientProvider client={client}>
-            <App />
-          </QueryClientProvider>
-        </HelmetProvider>
-      </SnackbarProvider>
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={Theme}>
+      <SnackbarProvider
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+          maxSnack={3}
+        >
+          <HelmetProvider>
+            <QueryClientProvider client={client}>
+              <App />
+            </QueryClientProvider>
+          </HelmetProvider>
+        </SnackbarProvider>
+      </ThemeProvider>
+    </Provider>
   </React.StrictMode>
 );
 

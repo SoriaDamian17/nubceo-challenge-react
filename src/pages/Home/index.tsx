@@ -8,8 +8,9 @@ import { formatGenreOptions, getCover } from "../../shared/utils";
 import Grid from '@mui/material/Grid'
 import { useGenre } from "../../hook/useGenre";
 import Select from "../../components/molecules/Select";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Band, HeaderBand } from "./styles";
+import { useNavigate } from "react-router-dom";
 
 const SORT_BANDS = [
     {
@@ -22,51 +23,72 @@ const SORT_BANDS = [
     }
 ];
 
+const token = localStorage.getItem('NubToken');
 const Home = () => {
-    const [genre, setGenre] = useState<string>('All bands')
+    const navigate = useNavigate()
+    const [genre, setGenre] = useState<string>('All')
+    const [sort, setSort] = useState<string>('asc')
     const {
         data: fetchBands,
-        isLoading
-    } = useBands('token', '', {
+        isLoading,
+        refetch,
+    } = useBands(token, '', {
         genre: genre,
-        sort: 'asc'
+        sort: sort
     })
     const {
         data: fetchGenre
     } = useGenre('token');
-
-    function handleSelected(value: string) {
-        setGenre(value)
-        const allBands = document.querySelectorAll('div.band');
-        console.log('All bands', allBands);
+    
+    function handleClick(id: number | string) {
+        navigate(`/view/${id}`)
     }
 
+    function handleGenreSelected(value: string) {
+        setGenre(value)
+    }
+
+    function handleSortSelected(value: string) {
+        setSort(value)
+    }
+
+    useEffect(() => {
+        refetch()
+    }, [genre, sort])
+
     return (
-        <BasicTemplate>
+        <BasicTemplate sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: '0 1rem',
+            maxWidth: '62rem',
+        }}>
             {isLoading && <Spinner />}
             <HeaderBand>
                 <Typography variant="h1" color="secondary">
                     Bands
                 </Typography>
                 <Select
-                    onChange={handleSelected}
+                    onChange={handleSortSelected}
                     options={SORT_BANDS}
-                    valueSelected={'sort asc'}
+                    valueSelected={sort}
                 />
                 <Select
-                    onChange={handleSelected}
+                    onChange={handleGenreSelected}
                     options={fetchGenre ? formatGenreOptions(fetchGenre.data) : []}
                     valueSelected={genre}
                 />
             </HeaderBand>
-            <Grid container gap={2}>
+            <Grid container gap={2} display="flex">
                 {fetchBands?.data.length && fetchBands?.data.map(
                     (band: IBand) =>
                     <Band item key={band.id} className={`band ${band.genreCode}`}>
                         <Card
-                            genreCode={band.genreCode}
+                            onClick={handleClick}
                             src={getCover(band.name)}
                             title={band.name}
+                            {...band}
                         />
                     </Band>
                 )}

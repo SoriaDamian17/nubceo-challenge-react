@@ -23,6 +23,6 @@ export const StyledHeader = styled.header<HeaderProps>`
   
   @media ${devices.mobileS} {
     justify-content: space-around;
-    padding: 0.5rem;
+    padding: 0.5rem 0;
   }
 `

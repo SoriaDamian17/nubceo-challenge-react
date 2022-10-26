@@ -32,13 +32,15 @@ const Login: React.FC = ():JSX.Element => {
         }).then(
             (resp:any) => {
                 console.log(resp)
-                // localStorage.setItem('NXtoken', resp.data.data.token);
+                localStorage.setItem('NubToken', resp.token);
                 navigate('/home');
             },
-        ).catch(() => {
-            const variant: VariantType = 'error';
-            enqueueSnackbar('Username or Password are incorrects!', { variant });
-        });
+            (err) => {
+                console.log('err', err)
+                const variant: VariantType = 'error';
+                enqueueSnackbar('Username or Password are incorrects!', { variant });
+            }
+        );
     };
 
     return (
