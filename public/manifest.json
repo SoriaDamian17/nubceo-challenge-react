@@ -1,12 +1,13 @@
 {
-  "theme_color": "#0c6bf4",
   "background_color": "#0c6bf4",
-  "display": "browser",
-  "scope": "/",
-  "start_url": "/",
-  "name": "Nubceo",
-  "short_name": "Nubceo",
   "description": "Challenge React",
+  "display": "standalone",
+  "name": "Nubceo",
+  "scope": "/",
+  "short_name": "Nubceo",
+  "start_url": "/",
+  "theme_color": "#0c6bf4",
+  "prefer_related_applications": false,
   "icons": [
       {
           "src": "/icon-192x192.png",

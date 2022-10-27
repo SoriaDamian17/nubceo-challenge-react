@@ -5,9 +5,6 @@ import CardActions from '@mui/material/CardActions';
 import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import CardMT from '@mui/material/Card';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton from '@mui/material/IconButton';
-import ShareIcon from '@mui/icons-material/Share';
 import { Button } from '../../atoms/Button';
 
 export default function Card({
@@ -37,14 +34,6 @@ export default function Card({
       <CardActions disableSpacing sx={{
         justifyContent: 'space-between'
       }}>
-        <div>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="share">
-            <ShareIcon />
-          </IconButton>
-        </div>
         <div>
           <Button
             variant='contained'

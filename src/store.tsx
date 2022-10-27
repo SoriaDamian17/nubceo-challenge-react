@@ -1,5 +1,7 @@
-import { createStore } from 'redux';
-import { SW_INIT, SW_UPDATE } from './swtypes';
+import { configureStore } from '@reduxjs/toolkit'
+
+export const SW_INIT = 'SW_INIT';
+export const SW_UPDATE = 'SW_UPDATE';
 
 export interface IState {
     serviceWorkerInitialized: boolean;
@@ -27,12 +29,7 @@ function rootReducer(state = defaultState, action: any) {
     return stateSW[action.type] ?? state;
 }
 
-function configureStore() {
-    return createStore(rootReducer, {
-        serviceWorkerInitialized: false,
-        serviceWorkerUpdated: false,
-        serviceWorkerRegistration: null,
-    });
-}
-
-export default configureStore
+export default configureStore({
+    reducer: rootReducer,
+    preloadedState: defaultState,
+})

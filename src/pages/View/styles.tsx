@@ -1,4 +1,12 @@
+import { Grid } from "@mui/material";
 import styled from "styled-components";
+import { devices } from "../../shared/utils";
+
+export const Container = styled(Grid)`
+    @media ${devices.mobileS} and (max-width: 560px) {
+        padding: 0 1rem;
+    }
+`
 
 export const Cover = styled.img`
     height: auto;

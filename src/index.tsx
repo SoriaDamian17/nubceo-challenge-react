@@ -13,7 +13,6 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import configureStore from './store';
 import { Provider } from 'react-redux';
 import AuthContextProvider from './context/AuthContext';
-const store = configureStore();
 
 const client = new QueryClient()
 const root = ReactDOM.createRoot(
@@ -21,7 +20,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={configureStore}>
       <ThemeProvider theme={Theme}>
       <SnackbarProvider
           anchorOrigin={{
@@ -42,9 +41,9 @@ root.render(
 );
 
 serviceWorkerRegistration.register({
-  onSuccess: () => store.dispatch({ type: SW_INIT }),
+  onSuccess: () => configureStore.dispatch({ type: SW_INIT }),
   onUpdate: registration =>
-    store.dispatch({ type: SW_UPDATE, payload: registration }),
+  configureStore.dispatch({ type: SW_UPDATE, payload: registration }),
 });
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
