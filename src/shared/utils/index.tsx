@@ -39,6 +39,61 @@ export function getCover(name: string) {
     return `${folder}/${imgCover}`
 }
 
+export function getSpotifyIdTrack(name: string) {
+    const tracks = [
+        {
+            id: 'Aerosmith',
+            value: '74irxdVWstNlEQjsvArITq',
+        },
+        {
+            id: 'Aerosmith',
+            value: '74irxdVWstNlEQjsvArITq',
+        },
+        {
+            id: 'Angra',
+            value: '1hEVuE88R6SC3Q8ogis00B',
+        },
+        {
+            id: 'Cradle of Filth',
+            value: '6WuqJLVZcyJklg7lIozAO8',
+        },
+        {
+            id: 'Dream Theater',
+            value: '5CPXR6lDTvngxtmMZxnWmC',
+        },
+        {
+            id: 'Iron Maiden',
+            value: '4OROzZUy6gOWN4UGQVaZMF',
+        },
+        {
+            id: 'Metallica',
+            value: '2MuWTIM3b0YEAskbeeFE1i',
+        },
+        {
+            id: 'Pearl Jam',
+            value: '6QewNVIDKdSl8Y3ycuHIei',
+        },
+        {
+            id: 'Queen',
+            value: '4u7EnebtmKWzUH433cf5Qv',
+        },
+        {
+            id: 'Rhapsody of Fire',
+            value: '5W5riPbci6HLF2TkTd2VyA',
+        },
+        {
+            id: 'The Beatles',
+            value: '6dGnYIeXmHdcikdzNNDMm2',
+        },
+        {
+            id: 'Within Temptation',
+            value: '4XBtYPGMAYJkuJu2w4pmYl',
+        },
+    ];
+
+    const trackId = tracks.find((track) => track.id === name);
+    return trackId ? trackId.value : '';
+}  
 export function formatGenreOptions(options: any) {
     const formatOptions = options.map((option: any) => {
         return { id: option.code, value: option.name }

@@ -8,10 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import { Theme } from './shared/Theme';
 import { SnackbarProvider } from 'notistack';
 
-import { SW_INIT, SW_UPDATE } from './swtypes';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import configureStore from './store';
-import { Provider } from 'react-redux';
 import AuthContextProvider from './context/AuthContext';
 
 const client = new QueryClient()
@@ -20,31 +17,25 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Provider store={configureStore}>
-      <ThemeProvider theme={Theme}>
-      <SnackbarProvider
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-          }}
-          maxSnack={3}
-        >
-            <QueryClientProvider client={client}>
-              <AuthContextProvider>
-                <App />
-              </AuthContextProvider>
-            </QueryClientProvider>
-        </SnackbarProvider>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={Theme}>
+    <SnackbarProvider
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
+        }}
+        maxSnack={3}
+      >
+          <QueryClientProvider client={client}>
+            <AuthContextProvider>
+              <App />
+            </AuthContextProvider>
+          </QueryClientProvider>
+      </SnackbarProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
 
-serviceWorkerRegistration.register({
-  onSuccess: () => configureStore.dispatch({ type: SW_INIT }),
-  onUpdate: registration =>
-  configureStore.dispatch({ type: SW_UPDATE, payload: registration }),
-});
+serviceWorkerRegistration.register();
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

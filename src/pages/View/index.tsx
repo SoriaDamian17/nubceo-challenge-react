@@ -1,11 +1,11 @@
 import { useEffect } from 'react'
-import { Button, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { Spinner } from "../../components/atoms/Spinner";
 import BasicTemplate from "../../components/Template/BasicTemplate";
 import { useAlbums } from "../../hook/useAlbums";
 import { useBands } from "../../hook/useBands";
-import { getCover } from "../../shared/utils";
+import { getCover, getSpotifyIdTrack } from "../../shared/utils";
 import { Container, Cover, Information, Spotify } from "./styles";
 import Table from '../../components/molecules/Table';
 import ListMember from '../../components/molecules/List';
@@ -50,7 +50,7 @@ const ViewBand = () => {
                         <Spotify
                             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                             loading="lazy"
-                            src="https://open.spotify.com/embed/track/07q0QVgO56EorrSGHC48y3?utm_source=generator&theme=1"
+                            src={`https://open.spotify.com/embed/track/${getSpotifyIdTrack(fetchBand.data[0].name)}?utm_source=generator&theme=1`}
                             title={fetchBand.data[0].name}
                         ></Spotify>
                     </Grid>
