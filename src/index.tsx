@@ -7,12 +7,12 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider } from 'styled-components';
 import { Theme } from './shared/Theme';
 import { SnackbarProvider } from 'notistack';
-import { HelmetProvider } from 'react-helmet-async';
 
 import { SW_INIT, SW_UPDATE } from './swtypes';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import configureStore from './store';
 import { Provider } from 'react-redux';
+import AuthContextProvider from './context/AuthContext';
 const store = configureStore();
 
 const client = new QueryClient()
@@ -30,11 +30,11 @@ root.render(
           }}
           maxSnack={3}
         >
-          <HelmetProvider>
             <QueryClientProvider client={client}>
-              <App />
+              <AuthContextProvider>
+                <App />
+              </AuthContextProvider>
             </QueryClientProvider>
-          </HelmetProvider>
         </SnackbarProvider>
       </ThemeProvider>
     </Provider>

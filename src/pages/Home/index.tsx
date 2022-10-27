@@ -96,5 +96,5 @@ const Home = () => {
         </BasicTemplate>
     );
 }
- 
+
 export default Home;

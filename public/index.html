@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/png" href="%PUBLIC_URL%/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Challenge React"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -28,19 +28,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;600&display=swap" rel="stylesheet">
     <meta name="apple-mobile-web-app-status-bar-style" content="blue" />
-    <meta name="apple-mobile-web-app-title" content="Field Genie" />
-    <link rel="apple-touch-icon" href="images/icons/Icon_120.png" sizes="120x120" />
-    <link rel="apple-touch-icon" href="images/icons/Icon_180.png" sizes="180x180" />
-    <link rel="apple-touch-icon" href="images/icons/Icon_192.png" sizes="192x192" />
-    <link rel="apple-touch-icon" href="images/icons/Icon_512.png" sizes="512x512" />
+    <meta name="apple-mobile-web-app-title" content="Nubceo" />
+    <link rel="apple-touch-icon" href="/Icon_120.png" sizes="120x120" />
+    <link rel="apple-touch-icon" href="/Icon_180.png" sizes="180x180" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" sizes="192x192" />
+    <link rel="apple-touch-icon" href="/icon-512x512.png" sizes="512x512" />
 
-    <meta name="msapplication-TileImage" content="images/icons/Icon_144.png" />
+    <meta name="msapplication-TileImage" content="/Icon_144.png" />
     <meta name="msapplication-TileColor" content="blue" />
     <title>Nubceo Challenge</title>
+    <style>
+      .full-page-loader {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          left: 0;
+          bottom: 0;
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div id="root">
+      <div class="full-page-loader">
+        <img width="200" src="./logo-nubeo.svg" alt="Nubceo" />
+      </div>
+    </div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
