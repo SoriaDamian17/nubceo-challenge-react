@@ -11,8 +11,7 @@ const GuardProvider: React.FC<GuardProviderProps> = ({
 }: GuardProviderProps) => {
   const {auth} = useContext(AuthContext);
 
-  // return auth.token ? children : <Navigate to="/" />;
-  return children;
+  return auth.token ? children : <Navigate to="/" />;
 }
 
 export default GuardProvider

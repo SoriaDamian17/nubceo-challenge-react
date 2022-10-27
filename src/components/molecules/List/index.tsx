@@ -5,8 +5,6 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
-import WorkIcon from '@mui/icons-material/Work';
-import BeachAccessIcon from '@mui/icons-material/BeachAccess';
 import { IMember } from '../../../interface';
 
 export default function ListMember({
@@ -17,7 +15,7 @@ export default function ListMember({
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {members.map((member: IMember) =>   
-        <ListItem>
+        <ListItem key={member.name}>
             <ListItemAvatar>
             <Avatar>
                 <ImageIcon />

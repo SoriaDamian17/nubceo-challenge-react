@@ -1,12 +1,5 @@
-import { axiosBase } from '.';
 import { IAuth } from '../context/AuthContext';
 import { generate_token } from '../shared/utils';
-
-const headers = {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
-    Accept: 'application/json',
-};
 
 export interface IBody {
     username: string,
