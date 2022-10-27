@@ -6,8 +6,7 @@ import BasicTemplate from "../../components/Template/BasicTemplate";
 import { useAlbums } from "../../hook/useAlbums";
 import { useBands } from "../../hook/useBands";
 import { getCover } from "../../shared/utils";
-import { BoxBand, Cover, Information, Pill, Spotify } from "./styles";
-import { IAlbums } from '../../interface';
+import { Cover, Information, Spotify } from "./styles";
 import Table from '../../components/molecules/Table';
 import ListMember from '../../components/molecules/List';
 

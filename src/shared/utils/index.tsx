@@ -18,7 +18,6 @@ export const devices = {
     desktop: `(min-width: ${sizes.desktop})`,
 }
 
-
 export function getCover(name: string) {
     const folder:string = 'bands';
     const covers: any = {

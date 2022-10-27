@@ -1,6 +1,5 @@
 import { Grid } from "@mui/material";
-import styled, { keyframes } from "styled-components";
-import { fadeIn, fadeOut } from 'react-animations';
+import styled from "styled-components";
 
 export const HeaderBand = styled.div`
     display: flex;
@@ -9,14 +8,4 @@ export const HeaderBand = styled.div`
     justify-content: space-between;
     padding: 1rem 0;
 `
-const fadeInAnimation = keyframes`${fadeIn}`;
-const fadeOutAnimation = keyframes`${fadeOut}`;
-
-export const Band = styled(Grid)`
-    &.fadeIn {
-        animation: 1s ${fadeInAnimation};
-    }
-    &.fadeOut {
-        animation: 1s ${fadeOutAnimation};
-    }
-`
+export const Band = styled(Grid)``

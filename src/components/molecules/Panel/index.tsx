@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { devices } from '../../../shared/utils'
 import { PanelProps } from './types'
 
 const Panel = styled.div<PanelProps>`
@@ -17,6 +18,11 @@ const Panel = styled.div<PanelProps>`
   shadow &&
   css`filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))  drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));`};
   ${({ maxWidth }) => `max-width: ${maxWidth}`};
+
+  @media ${devices.mobileS} and (max-width: 560px) {
+    width: 100%;
+    padding: 0!important;
+  }
   `
 
 export default Panel
