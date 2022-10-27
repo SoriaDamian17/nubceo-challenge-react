@@ -66,19 +66,23 @@ const Home = () => {
         }}>
             {isLoading && <Spinner />}
             <HeaderBand>
-                <Typography variant="h1" color="secondary">
-                    Bands
-                </Typography>
-                <Select
-                    onChange={handleSortSelected}
-                    options={SORT_BANDS}
-                    valueSelected={sort}
-                />
-                <Select
-                    onChange={handleGenreSelected}
-                    options={fetchGenre ? formatGenreOptions(fetchGenre.data) : []}
-                    valueSelected={genre}
-                />
+                <div>
+                    <Typography variant="h1" color="secondary">
+                        Bands
+                    </Typography>
+                </div>
+                <div>
+                    <Select
+                        onChange={handleSortSelected}
+                        options={SORT_BANDS}
+                        valueSelected={sort}
+                    />
+                    <Select
+                        onChange={handleGenreSelected}
+                        options={fetchGenre ? formatGenreOptions(fetchGenre.data) : []}
+                        valueSelected={genre}
+                    />
+                </div>
             </HeaderBand>
             <Grid container gap={2} display="flex">
                 {fetchBands?.data.length && fetchBands?.data.map(

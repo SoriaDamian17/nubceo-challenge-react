@@ -1,14 +1,15 @@
 import { useEffect } from 'react'
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { useParams } from "react-router-dom";
 import { Spinner } from "../../components/atoms/Spinner";
 import BasicTemplate from "../../components/Template/BasicTemplate";
 import { useAlbums } from "../../hook/useAlbums";
 import { useBands } from "../../hook/useBands";
 import { getCover } from "../../shared/utils";
-import { Cover, Information, Spotify } from "./styles";
+import { Container, Cover, Information, Spotify } from "./styles";
 import Table from '../../components/molecules/Table';
 import ListMember from '../../components/molecules/List';
+import Breadcrumbs from '../../components/molecules/Breadcrumbs';
 
 const ViewBand = () => {
     const { id } = useParams();
@@ -24,23 +25,24 @@ const ViewBand = () => {
         data: fetchAlbums
     } = useAlbums('token', id);
 
-    console.log('id', id)
-    console.log('fetchBand', fetchBand)
-    console.log('fetchAlbums', fetchAlbums)
     useEffect(() => {
         refetch()
     }, [id])
 
     return (
         <BasicTemplate sx={{
-            display: 'flex',
             justifyContent: 'center',
             margin: '1rem 0',
         }}>
             {isLoading && <Spinner />}
             {!isLoading && fetchBand && (
-                <Grid container>
-                    <Grid item>
+                <>
+                <Breadcrumbs name={fetchBand.data[0].name} />
+                <Container
+                    container
+                    spacing={3}
+                >
+                    <Grid item xs={12} md={6}>
                         <Cover
                             src={`${process.env.PUBLIC_URL}/${getCover(fetchBand.data[0].name)}`}
                             alt={fetchBand.data[0].name}
@@ -52,8 +54,8 @@ const ViewBand = () => {
                             title={fetchBand.data[0].name}
                         ></Spotify>
                     </Grid>
-                    <Grid item>
-                        <Typography variant="h3">
+                    <Grid item xs={12} md={6}>
+                        <Typography variant="h4">
                             {fetchBand.data[0].name}
                         </Typography>
                         <Information>
@@ -70,7 +72,8 @@ const ViewBand = () => {
                             {fetchAlbums && <Table rows={fetchAlbums?.data} />}
                         </Information>
                     </Grid>
-                </Grid>
+                </Container>
+                </>
             )}
         </BasicTemplate>
     );

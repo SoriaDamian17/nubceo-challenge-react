@@ -15,9 +15,6 @@ export interface IBody {
 
 const AuthApi = {
     post: (url:string, data:IBody) => new Promise((resolve, reject) => {
-        console.log('data', data)
-        console.log('process.env.REACT_APP_USER_EMAIL', process.env.REACT_APP_USER_EMAIL)
-        console.log('process.env.REACT_APP_USER_PASSWORD', process.env.REACT_APP_USER_PASSWORD)
         if (
             data.username === process.env.REACT_APP_USER_EMAIL ||
             data.password === process.env.REACT_APP_USER_PASSWORD

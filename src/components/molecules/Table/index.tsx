@@ -15,7 +15,7 @@ export default function Table({
 }) {
   return (
     <TableContainer component={Paper}>
-      <TableMT sx={{ minWidth: 650 }} aria-label="simple table">
+      <TableMT sx={{ maxWidth: 320 }} aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
